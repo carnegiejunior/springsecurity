@@ -12,8 +12,8 @@ spring:
       client:
         registration:
           google: #console.cloud.google.com/
-            client-id: 503210682477-t44qovufr6tmgtqr8q0rmdjsm1bv3su1.apps.googleusercontent.com
-            client-secret: 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
+            client-id: teste
+            client-secret: teste
       resourceserver:
         jwt:
           issuer-uri: https://accounts.google.com

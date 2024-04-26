@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-security
+#  profiles:
+#    active: dev
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google: #console.cloud.google.com/
+            client-id: 503210682477-t44qovufr6tmgtqr8q0rmdjsm1bv3su1.apps.googleusercontent.com
+            client-secret: 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
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          #          Para o keycloak
+          #          issuer-uri: https://keycloak.example.com/auth/realms/myrealm
+          jwkSetUri:  https://www.googleapis.com/oauth2/v3/certs
+#          Keycloak
+#          jwkSetUri = "https://keycloak.example.com/auth/realms/myrealm/protocol/openid-connect/certs";
+
+

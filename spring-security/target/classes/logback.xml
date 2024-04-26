@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+
+    <!-- Variável de ambiente para determinar o modo (desenvolvimento ou produção) -->
+    <property name="ENV" value="${ENV:-dev}"/>
+
+    <!-- Appender para STDOUT que pode ser capturado pelo Kubernetes -->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%highlight(%-5level) %boldYellow(%d{ISO8601}) %boldCyan([%thread]) %boldGreen(%logger{36}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Configurações de logger que se ajustam automaticamente ao ambiente -->
+    <root level="${LOG_LEVEL:-INFO}">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+    <!-- Configuração para reduzir o log de uma biblioteca verbosa em produção -->
+    <logger name="org.springframework.web" level="${LOG_LEVEL_SPRING_WEB:-WARN}"/>
+
+</configuration>
